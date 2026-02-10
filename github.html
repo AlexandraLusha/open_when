@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open When</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #fff0f5; margin:0; padding:0; display:flex; flex-direction:column; align-items:center; }
+  h1 { text-align:center; margin:20px; color:#ff69b4; }
+  .button-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; width:90%; max-width:600px; }
+  .btn { background-color:#ffb6c1; border:none; padding:15px; border-radius:10px; color:white; font-size:16px; cursor:pointer; flex:1 1 45%; min-width:120px; transition:0.2s; }
+  .btn:hover { transform: scale(1.05); }
+  .card { display:none; flex-direction:column; align-items:center; padding:20px; width:90%; max-width:600px; text-align:center; }
+  .card img { max-width:100%; border-radius:15px; margin-bottom:15px; }
+  .back-btn { background-color:#ff69b4; border:none; padding:10px 20px; border-radius:8px; color:white; font-size:16px; cursor:pointer; margin-top:10px; }
+</style>
+</head>
+<body>
+
+<h1>Open When</h1>
+
+<div id="home" class="button-grid">
+  <button class="btn" onclick="openCard('missMe')">Open when you miss me</button>
+  <button class="btn" onclick="openCard('cantSleep')">Open when you can't sleep</button>
+  <button class="btn" onclick="openCard('lonely')">Open when you feel lonely</button>
+  <button class="btn" onclick="openCard('overthinking')">Open when you’re overthinking</button>
+  <button class="btn" onclick="openCard('doubt')">Open when you doubt yourself</button>
+  <button class="btn" onclick="openCard('tired')">Open when you’re tired</button>
+  <button class="btn" onclick="openCard('motivation')">Open when you need motivation</button>
+  <button class="btn" onclick="openCard('smiling')">Open when you’re smiling</button>
+  <button class="btn" onclick="openCard('feelClose')">Open when you want to feel close</button>
+  <button class="btn" onclick="openCard('thinkOfMe')">Open when you think of me</button>
+  <button class="btn" onclick="openCard('goodMood')">Open when you’re in a good mood</button>
+  <button class="btn" onclick="openCard('amazingDay')">Open when you had an amazing day</button>
+  <button class="btn" onclick="openCard('valentine')">Open on Valentine’s Day</button>
+  <button class="btn" onclick="openCard('leloMischief')">Open when Lelo is up to mischief</button>
+  <button class="btn" onclick="openCard('clientsCrazy')">Open when clients drive you crazy</button>
+  <button class="btn" onclick="openCard('gym')">Open when you hit the gym</button>
+  <button class="btn" onclick="openCard('dictatorMovie')">Open when you watch The Dictator</button>
+  <button class="btn" onclick="openCard('visa')">Open when you get your Russian visa</button>
+  <button class="btn" onclick="openCard('yellowCar')">Open when you spot a yellow car first</button>
+  <button class="btn" onclick="openCard('dubai')">Open when Dubai feels too hot or far</button>
+  <button class="btn" onclick="openCard('hug')">Open when you need a hug</button>
+  <button class="btn" onclick="openCard('monday')">Open when it’s Monday</button>
+  <button class="btn" onclick="openCard('sick')">Open when you feel sick</button>
+  <button class="btn" onclick="openCard('ramadanStart')">Open when Ramadan begins</button>
+  <button class="btn" onclick="openCard('ramadanEnd')">Open when Ramadan ends</button>
+  <button class="btn" onclick="openCard('songReminds')">Open when a song reminds you of me</button>
+</div>
+
+<!-- Карточки -->
+<!-- В каждой карточке поменяй src на ссылку на свою картинку -->
+<div id="missMe" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Miss+Me" alt="Open when you miss me">
+  <p>Thinking of you, dreaming of our next hug</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="cantSleep" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Cant+Sleep" alt="Open when you can't sleep">
+  <p>Try counting sheep... or thinking of me 😉</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="lonely" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Lonely" alt="Open when you feel lonely">
+  <p>Even when you feel alone, I’m here in your thoughts 💛</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="overthinking" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Overthinking" alt="Open when you’re overthinking">
+  <p>Take a deep breath, everything will be fine 🌸</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="doubt" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Doubt" alt="Open when you doubt yourself">
+  <p>Believe in yourself—you’re amazing 🌟</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="tired" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Tired" alt="Open when you’re tired">
+  <p>Rest a little, you deserve it 💤</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="motivation" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Motivation" alt="Open when you need motivation">
+  <p>You got this! Keep going 💪</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="smiling" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Smiling" alt="Open when you’re smiling">
+  <p>Smile bright, it suits you 😄</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="feelClose" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Feel+Close" alt="Open when you want to feel close">
+  <p>Even far away, we’re together in spirit 💖</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="thinkOfMe" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Think+of+Me" alt="Open when you think of me">
+  <p>Hope I pop into your thoughts 😉</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="goodMood" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Good+Mood" alt="Open when you’re in a good mood">
+  <p>Share your smile with the world 😁</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="amazingDay" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Amazing+Day" alt="Open when you had an amazing day">
+  <p>So glad your day was awesome 🎉</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="valentine" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Valentine" alt="Open on Valentine’s Day">
+  <p>Happy Valentine’s Day! ❤️</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="leloMischief" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Lelo+Mischief" alt="Open when Lelo is up to mischief">
+  <p>Uh oh, Lelo strikes again 🐶</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="clientsCrazy" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Clients+Crazy" alt="Open when clients drive you crazy">
+  <p>Take a deep breath, you survived them 😉</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="gym" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Gym" alt="Open when you hit the gym">
+  <p>Time to grow those muscles 💪</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="dictatorMovie" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Dictator" alt="Open when you watch The Dictator">
+  <p>Alisson Burgers, anyone? 🍔</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="visa" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Visa" alt="Open when you get your Russian visa">
+  <p>Congrats on getting your visa! ✈️</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="yellowCar" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Yellow+Car" alt="Open when you spot a yellow car first">
+  <p>I saw it first… you get a punch! 👊</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="dubai" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Dubai" alt="Open when Dubai feels too hot or far">
+  <p>Missing me from afar ☀️🏙️</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="hug" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Hug" alt="Open when you need a hug">
+  <p>Sending you a virtual hug 🤗</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="monday" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Monday" alt="Open when it’s Monday">
+  <p>Good luck surviving Monday! ☕</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="sick" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Sick" alt="Open when you feel sick">
+  <p>Hope you feel better soon 🌸</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="ramadanStart" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Ramadan+Start" alt="Open when Ramadan begins">
+  <p>Ramadan Mubarak! 🌙✨</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="ramadanEnd" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Ramadan+End" alt="Open when Ramadan ends">
+  <p>Eid Mubarak! 🌙🎉</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="songReminds" class="card">
+  <img src="https://via.placeholder.com/400x300.png?text=Song+Reminds+Me" alt="Open when a song reminds you of me">
+  <p>This song made me think of you 🎵❤️</p>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script>
+function openCard(cardId){
+  document.getElementById('home').style.display='none';
+  document.getElementById(cardId).style.display='flex';
+}
+function goBack(){
+  const cards=document.querySelectorAll('.card');
+  cards.forEach(c=>c.style.display='none');
+  document.getElementById('home').style.display='flex';
+}
+</script>
+
+</body>
+</html>
