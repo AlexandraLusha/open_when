@@ -7,24 +7,28 @@
 <style>
 html, body {
   height: 100%;
+  min-height: 100vh; /* минимальная высота экрана */
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(120deg, #ffe6f0, #ffd9ec, #ffe0f5);
-  background-attachment: fixed;
+  background-attachment: fixed; /* фон не движется при скролле */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+  
 h1 { text-align:center; margin:20px; color:#ff69b4; }
 
-.button-grid {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  width:90%;
-  max-width:600px;
+.button-grid, .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* центрирование по вертикали */
+  width: 100%;
+  min-height: 100vh; /* растягиваем на весь экран */
+  box-sizing: border-box;
+  padding: 20px;
 }
 .btn {
   background: linear-gradient(135deg, #ff9ac1, #ff6fa3);
