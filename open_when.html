@@ -5,11 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Open When</title>
 <style>
+/* --- Фон на весь экран --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #ffe6f0, #ffd9ec, #ffe0f5);
+  background-attachment: fixed; /* фон не движется при скролле */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
 
-  
-h1 { text-align:center; margin:20px; color:#ff69b4; }
+/* --- Главный заголовок --- */
+h1 {
+  text-align: center;
+  margin: 20px;
+  color: #ff69b4;
+  font-size: 2em;
+}
 
+/* --- Сетка кнопок --- */
+.button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
 
+/* --- Кнопки --- */
 .btn {
   background: linear-gradient(135deg, #ff9ac1, #ff6fa3);
   border: none;
@@ -28,58 +58,34 @@ h1 { text-align:center; margin:20px; color:#ff69b4; }
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-html, body {
-  height: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(120deg, #ffe6f0, #ffd9ec, #ffe0f5);
-  background-attachment: fixed; /* фон не движется при скролле */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.button-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  width: 90%;
-  max-width: 600px;
-  min-height: 100vh; /* растягиваем на весь экран */
-  align-items: center;
-  box-sizing: border-box;
-  padding: 20px;
-}
-
+/* --- Карточки --- */
 .card {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 20px;
   width: 90%;
   max-width: 600px;
-  min-height: 100vh; /* растягиваем на весь экран */
   text-align: center;
-  background: rgba(255, 248, 251, 0.9); /* полупрозрачный, чтобы видеть розовый градиент */
+  background: rgba(255, 248, 251, 0.95); /* чуть прозрачный фон */
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   animation: fadeIn 0.5s ease forwards;
-  padding: 20px;
-  box-sizing: border-box;
+  margin-bottom: 40px;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+
 .card p {
   font-size: 1.1em;
   line-height: 1.5em;
   color: #ff4d94;
+  margin-bottom: 15px;
 }
+
 .card img {
   max-width: 90%;
   border-radius: 20px;
@@ -87,6 +93,8 @@ html, body {
   border: 3px solid #ffb6c1;
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
+
+/* --- Кнопка "назад" --- */
 .back-btn {
   background-color: #ff6fa3;
   border: none;
@@ -102,7 +110,30 @@ html, body {
   transform: scale(1.05) rotate(-2deg);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+
+/* --- Адаптив под мобилку --- */
+@media (max-width: 480px) {
+  .btn {
+    flex: 1 1 90%;
+    font-size: 14px;
+    padding: 12px;
+  }
+  .card p {
+    font-size: 1em;
+  }
+  .card img {
+    max-width: 100%;
+  }
+}
+
+/* --- Отмена выделения активной кнопки --- */
+.btn.active-btn {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: scale(1);
+  border: none;
+}
 </style>
+
 </head>
 <body>
 
