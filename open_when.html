@@ -5,31 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Open When</title>
 <style>
-html, body {
-  height: 100%;
-  min-height: 100vh; /* минимальная высота экрана */
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(120deg, #ffe6f0, #ffd9ec, #ffe0f5);
-  background-attachment: fixed; /* фон не движется при скролле */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
   
 h1 { text-align:center; margin:20px; color:#ff69b4; }
 
-.button-grid, .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* центрирование по вертикали */
-  width: 100%;
-  min-height: 100vh; /* растягиваем на весь экран */
-  box-sizing: border-box;
-  padding: 20px;
-}
+
 .btn {
   background: linear-gradient(135deg, #ff9ac1, #ff6fa3);
   border: none;
@@ -48,19 +28,49 @@ h1 { text-align:center; margin:20px; color:#ff69b4; }
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #ffe6f0, #ffd9ec, #ffe0f5);
+  background-attachment: fixed; /* фон не движется при скролле */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 600px;
+  min-height: 100vh; /* растягиваем на весь экран */
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
 .card {
   display: none;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  justify-content: center;
   width: 90%;
   max-width: 600px;
+  min-height: 100vh; /* растягиваем на весь экран */
   text-align: center;
-  background: #fff8fb;
+  background: rgba(255, 248, 251, 0.9); /* полупрозрачный, чтобы видеть розовый градиент */
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   animation: fadeIn 0.5s ease forwards;
+  padding: 20px;
+  box-sizing: border-box;
 }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
