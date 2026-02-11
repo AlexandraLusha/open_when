@@ -426,6 +426,7 @@ button {
 
 <!-- Основная сетка с кнопками (ВСЕ ТЕКСТЫ НА АНГЛИЙСКОМ) -->
 <div id="home" class="button-grid">
+  <button class="btn" onclick="openCard('valentines')">💘 when it's Valentine's Day</button>
   <button class="btn" onclick="openCard('missMe')">💗 when you miss me</button>
   <button class="btn" onclick="openCard('cantSleep')">🌙 when you can't sleep</button>
   <button class="btn" onclick="openCard('lonely')">🕯️ when you feel lonely</button>
@@ -578,6 +579,49 @@ button {
   <h1>when a song reminds you of me</h1>
   <p>Ah, that song popped up 🎵💖! Every note brings a little memory of us — hope it makes you smile and think of me too ❤️</p>
   <img src="images/song.jpg" alt="Open when a song reminds you of me">  
+  <button class="back-btn" onclick="goBack()">back</button>
+</div>
+
+  <div id="valentines" class="card">
+  <h1>💘 happy Valentine's Day, my love 💘</h1>
+  
+  <!-- ОСОБЫЙ СЮРПРИЗ: анимированное сердечко -->
+  <div style="font-size: 80px; animation: heartbeat 1.2s ease-in-out infinite; margin: 10px 0;">
+    ❤️
+  </div>
+  
+  <p style="font-size: 1.4em; font-weight: 500; color: #c43e5c;">
+    February 14th, but with you — every day feels like this 💕
+  </p>
+  
+  <p style="font-size: 1.2em; line-height: 1.7em;">
+    Even though we're miles apart today, my heart is right there next to yours. <br>
+    Distance just means I love you twice as far — and twice as much. <br><br>
+    <span style="background: #ffe6ec; padding: 8px 20px; border-radius: 50px; display: inline-block;">
+      🌹 I'd give you a thousand roses if I could 🌹
+    </span>
+    <br><br>
+    You're the best thing that ever happened to me. <br>
+    Happy Valentine's Day, my favorite person. 💌
+  </p>
+  
+  <!-- Милая валентинка (замените на ваше фото) -->
+  <img src="images/lelo.jpg" alt="Happy Valentine's Day" style="border: 5px solid #ffccd5; border-radius: 30px;">
+  
+  <p style="font-size: 1.3em; margin-top: 20px;">
+    🥂 To us, to love, and to the day we're finally together. 🥂
+  </p>
+  
+  <div style="display: flex; gap: 10px; justify-content: center; margin: 15px 0;">
+    <span style="font-size: 35px;">❤️</span>
+    <span style="font-size: 35px;">🧡</span>
+    <span style="font-size: 35px;">💛</span>
+    <span style="font-size: 35px;">💚</span>
+    <span style="font-size: 35px;">💙</span>
+    <span style="font-size: 35px;">💜</span>
+    <span style="font-size: 35px;">🖤</span>
+  </div>
+  
   <button class="back-btn" onclick="goBack()">back</button>
 </div>
 
