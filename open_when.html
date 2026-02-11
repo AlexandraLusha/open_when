@@ -78,21 +78,24 @@ body {
   transform: scale(1.05) rotate(-2deg);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
-  body::before {
-  content: '💖💌💛💖';
-  position: fixed;
-  top: 0;
-  left: 0;
-  font-size: 2em;
-  animation: floatHearts 10s linear infinite;
-  opacity: 0.3;
+  html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(120deg, #ffe6f0, #ffd9ec, #ffe0f5);
+  background-attachment: fixed; /* фон не движется при скролле */
 }
 
-@keyframes floatHearts {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(200px) rotate(180deg); }
-  100% { transform: translateY(0) rotate(360deg); }
+  .btn.active-btn {
+  box-shadow: 0 0 15px #ff69b4;
+  border: 2px solid #ff1493;
+  transform: scale(1.05);
 }
+
 
 </style>
 </head>
@@ -265,6 +268,31 @@ function goBack(){
   cards.forEach(c=>c.style.display='none');
   document.getElementById('home').style.display='flex';
 }
+
+  let lastOpenedBtn = null;
+
+function openCard(cardId) {
+  document.getElementById('home').style.display = 'flex'; // убедимся, что grid виден
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(c => c.style.display = 'none');
+  
+  document.getElementById(cardId).style.display = 'flex';
+
+  // запоминаем кнопку, если нужно подсветить при возврате
+  lastOpenedBtn = document.querySelector(`.btn[onclick="openCard('${cardId}')"]`);
+}
+
+function goBack() {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(c => c.style.display = 'none');
+  document.getElementById('home').style.display = 'flex';
+
+  // убираем актив со всех кнопок
+  document.querySelectorAll('.btn').forEach(b => b.classList.remove('active-btn'));
+  // подсвечиваем последнюю открытую
+  if (lastOpenedBtn) lastOpenedBtn.classList.add('active-btn');
+}
+
 </script>
 
 </body>
