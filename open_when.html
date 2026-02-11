@@ -18,21 +18,6 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Падающие сердечки (очень деликатные) --- */
-.floating-heart {
-  position: absolute;
-  font-size: 16px;
-  opacity: 0.08;
-  animation: fall linear infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
-@keyframes fall {
-  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.08; }
-  100% { transform: translateY(110vh) rotate(360deg); opacity: 0.08; }
-}
-
 /* --- Заголовки --- */
 h1 {
   text-align: center;
@@ -43,175 +28,63 @@ h1 {
   letter-spacing: 2px;
 }
 
-.subtitle {
+/* --- ВСТУПИТЕЛЬНЫЙ БЛОК (НОВЫЙ) --- */
+.welcome-section {
+  max-width: 700px;
   text-align: center;
-  color: #a15c6e;
-  font-size: 1.1em;
-  margin-bottom: 40px;
-  font-weight: 300;
-  font-style: italic;
-}
-
-/* --- Секция с конвертами (НОВЫЙ ДИЗАЙН) --- */
-.envelopes-section {
-  width: 100%;
-  max-width: 1000px;
-  margin-bottom: 40px;
-  padding: 20px;
-  background: rgba(255, 245, 245, 0.5);
+  margin: 20px 0 50px 0;
+  padding: 30px 25px;
+  background: white;
   border-radius: 48px;
-  backdrop-filter: blur(4px);
-}
-
-.envelopes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 25px;
-  justify-content: center;
-  padding: 15px;
-}
-
-.envelope-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
-}
-
-.envelope-wrapper:hover {
-  transform: translateY(-6px);
-}
-
-/* --- МИНИМАЛИСТИЧНЫЙ КОНВЕРТ --- */
-.envelope {
-  position: relative;
-  width: 160px;
-  height: 120px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px -8px rgba(180, 70, 100, 0.15);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  margin-bottom: 12px;
-  border: 1.5px solid rgba(255, 200, 210, 0.6);
-}
-
-/* Тело конверта */
-.envelope-body {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 85px;
-  background: white;
-  border-radius: 0 0 16px 16px;
-  border-top: 2px dashed #ffccd5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Клапан (аккуратный треугольник) */
-.envelope-flap {
-  position: absolute;
-  top: -1px;
-  left: 0;
-  width: 100%;
-  height: 45px;
-  background: white;
-  clip-path: polygon(0% 0%, 100% 0%, 50% 70%);
-  transform-origin: top;
-  transition: transform 0.35s ease;
-  z-index: 3;
-  border-bottom: 1.5px solid #ffe0e5;
-}
-
-.envelope:hover .envelope-flap {
-  transform: rotateX(20deg);
-  background: #fff9fb;
-}
-
-/* Маленькое сердечко внутри */
-.envelope-heart {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 22px;
-  color: #ff8da1;
-  z-index: 4;
-  transition: all 0.25s ease;
-  opacity: 0.8;
-}
-
-.envelope:hover .envelope-heart {
-  transform: translate(-50%, -50%) scale(1.15);
-  opacity: 1;
-  color: #ff6b8b;
-}
-
-/* Тень */
-.envelope::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 15%;
-  width: 70%;
-  height: 10px;
-  background: rgba(150, 80, 90, 0.1);
-  border-radius: 50%;
-  filter: blur(6px);
-  transition: all 0.25s ease;
-}
-
-.envelope:hover::after {
-  bottom: -12px;
-  width: 80%;
-  left: 10%;
-  background: rgba(150, 80, 90, 0.15);
-}
-
-/* Подпись под конвертом */
-.envelope-label {
-  color: #7f4a5c;
-  font-size: 0.9em;
-  font-weight: 500;
-  text-align: center;
-  padding: 6px 14px;
-  background: white;
-  border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(200, 120, 140, 0.1);
-  transition: all 0.25s ease;
+  box-shadow: 0 15px 35px rgba(170, 90, 110, 0.08);
   border: 1px solid #ffe3e8;
-  letter-spacing: 0.3px;
 }
 
-.envelope-wrapper:hover .envelope-label {
-  background: #fff0f2;
+.welcome-title {
+  font-size: 2.5em;
+  margin-bottom: 15px;
   color: #b23b4b;
-  border-color: #ffb6c1;
-  box-shadow: 0 6px 16px rgba(200, 120, 140, 0.18);
 }
 
-/* --- Разделитель (минималистичный) --- */
-.divider {
-  width: 70%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #e9b6c2, #e28a9c, #e9b6c2, transparent);
-  margin: 30px auto;
-  position: relative;
+.welcome-heart {
+  font-size: 48px;
+  animation: gentlePulse 2s ease-in-out infinite;
+  margin: 15px 0;
 }
 
-.divider span {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fff9fa;
-  padding: 0 20px;
-  color: #b25e72;
+@keyframes gentlePulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+.welcome-text {
+  font-size: 1.2em;
+  line-height: 1.7em;
+  color: #6e4a5b;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.welcome-signature {
+  font-size: 1.1em;
+  color: #c44a6b;
+  font-style: italic;
+  margin-top: 20px;
+  border-top: 1px dashed #ffccd5;
+  padding-top: 25px;
+}
+
+.instruction-box {
+  background: #fff6f8;
+  border-radius: 100px;
+  padding: 12px 25px;
+  display: inline-block;
+  margin: 15px 0 5px 0;
+  border: 1px solid #ffd4dc;
+  color: #a15c6e;
   font-size: 0.95em;
-  font-weight: 400;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
 }
 
 /* --- Сетка кнопок --- */
@@ -225,7 +98,7 @@ h1 {
   margin-bottom: 40px;
 }
 
-/* --- Кнопки (более изящные) --- */
+/* --- Кнопки --- */
 .btn {
   background: white;
   border: 1.5px solid #ffd4dc;
@@ -270,6 +143,12 @@ h1 {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.96); }
   to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
 
 .card h1 {
@@ -330,20 +209,16 @@ button {
 @media (max-width: 768px) {
   body { padding: 30px 15px; }
   h1 { font-size: 1.9em; }
-  .envelopes-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
-  .envelope { width: 140px; height: 105px; }
-  .envelope-body { height: 75px; }
-  .envelope-flap { height: 40px; }
+  .welcome-title { font-size: 2em; }
+  .welcome-text { font-size: 1.1em; }
   .card h1 { font-size: 1.6em; }
   .card p { font-size: 1.1em; }
 }
 
 @media (max-width: 480px) {
   h1 { font-size: 1.7em; }
-  .envelopes-grid { grid-template-columns: 1fr; }
-  .envelope { width: 180px; height: 135px; margin: 0 auto; }
-  .envelope-body { height: 95px; }
-  .envelope-flap { height: 50px; }
+  .welcome-section { padding: 25px 20px; }
+  .welcome-title { font-size: 1.8em; }
   .btn { min-width: 150px; }
   .card { padding: 25px; }
 }
@@ -351,80 +226,33 @@ button {
 </head>
 <body>
 
-<!-- Секция с конвертами - НОВЫЙ ЧИСТЫЙ ДИЗАЙН -->
-<div id="envelopesSection" class="envelopes-section">
-  <h1>💌 open when... 💌</h1>
-  <p class="subtitle">choose the moment you need me</p>
+<!-- 🌸 ВСТУПИТЕЛЬНЫЙ БЛОК (ВМЕСТО КОНВЕРТОВ) 🌸 -->
+<div id="welcomeSection" class="welcome-section">
+  <div class="welcome-heart">💌</div>
+  <h1 class="welcome-title">open when...</h1>
   
-  <div class="envelopes-grid">
-    <!-- Конверт 1 - Miss me -->
-    <div class="envelope-wrapper">
-      <div class="envelope" onclick="openCard('missMe')">
-        <div class="envelope-flap"></div>
-        <div class="envelope-body"></div>
-        <div class="envelope-heart">❤️</div>
-      </div>
-      <p class="envelope-label">you miss me</p>
-    </div>
-    
-    <!-- Конверт 2 - Can't sleep -->
-    <div class="envelope-wrapper">
-      <div class="envelope" onclick="openCard('cantSleep')">
-        <div class="envelope-flap"></div>
-        <div class="envelope-body"></div>
-        <div class="envelope-heart">🌙</div>
-      </div>
-      <p class="envelope-label">can't sleep</p>
-    </div>
-    
-    <!-- Конверт 3 - Lonely -->
-    <div class="envelope-wrapper">
-      <div class="envelope" onclick="openCard('lonely')">
-        <div class="envelope-flap"></div>
-        <div class="envelope-body"></div>
-        <div class="envelope-heart">🕯️</div>
-      </div>
-      <p class="envelope-label">feel lonely</p>
-    </div>
-    
-    <!-- Конверт 4 - Need a hug -->
-    <div class="envelope-wrapper">
-      <div class="envelope" onclick="openCard('hug')">
-        <div class="envelope-flap"></div>
-        <div class="envelope-body"></div>
-        <div class="envelope-heart">🤗</div>
-      </div>
-      <p class="envelope-label">need a hug</p>
-    </div>
-    
-    <!-- Конверт 5 - Tired -->
-    <div class="envelope-wrapper">
-      <div class="envelope" onclick="openCard('tired')">
-        <div class="envelope-flap"></div>
-        <div class="envelope-body"></div>
-        <div class="envelope-heart">😴</div>
-      </div>
-      <p class="envelope-label">tired</p>
-    </div>
-    
-    <!-- Конверт 6 - Motivation -->
-    <div class="envelope-wrapper">
-      <div class="envelope" onclick="openCard('motivation')">
-        <div class="envelope-flap"></div>
-        <div class="envelope-body"></div>
-        <div class="envelope-heart">💪</div>
-      </div>
-      <p class="envelope-label">need motivation</p>
-    </div>
+  <p class="welcome-text">
+    Distance is just a number, but love doesn't measure in kilometers. <br>
+    This is your little collection of letters — for every mood, every moment, 
+    every time you need to feel me close.
+  </p>
+  
+  <p class="welcome-text" style="font-size: 1.1em;">
+    Some are for hard days, some are for happy ones,<br>
+    and some are just because.
+  </p>
+  
+  <div class="instruction-box">
+    ✦ pick a letter. open it when you need it. i'm always here. ✦
   </div>
+  
+  <p class="welcome-signature">
+    with all my love,<br>
+    your Sasha 💕
+  </p>
 </div>
 
-<!-- Разделитель -->
-<div class="divider">
-  <span>✦ more letters ✦</span>
-</div>
-
-<!-- Основная сетка с кнопками (ВСЕ ТЕКСТЫ НА АНГЛИЙСКОМ) -->
+<!-- Основная сетка с кнопками -->
 <div id="home" class="button-grid">
   <button class="btn" onclick="openCard('valentines')">💘 when it's Valentine's Day</button>
   <button class="btn" onclick="openCard('missMe')">💗 when you miss me</button>
@@ -448,7 +276,7 @@ button {
   <button class="btn" onclick="openCard('songReminds')">🎵 when a song reminds you of me</button>
 </div>
 
-<!-- ВСЕ ВАШИ КАРТОЧКИ (текст уже на английском) -->
+<!-- ВСЕ КАРТОЧКИ (без изменений) -->
 <div id="missMe" class="card">
   <h1>when you miss me</h1>
   <p>I know we're apart right now, but every time you miss me, remember I'm thinking of you too 💌 Close your eyes and imagine we're together for a moment</p>
@@ -582,10 +410,9 @@ button {
   <button class="back-btn" onclick="goBack()">back</button>
 </div>
 
-  <div id="valentines" class="card">
+<div id="valentines" class="card">
   <h1>💘 happy Valentine's Day, my love 💘</h1>
   
-  <!-- ОСОБЫЙ СЮРПРИЗ: анимированное сердечко -->
   <div style="font-size: 80px; animation: heartbeat 1.2s ease-in-out infinite; margin: 10px 0;">
     ❤️
   </div>
@@ -597,15 +424,9 @@ button {
   <p style="font-size: 1.2em; line-height: 1.7em;">
     Even though we're miles apart today, my heart is right there next to yours. <br>
     Distance just means I love you twice as far — and twice as much. <br><br>
-    <span style="background: #ffe6ec; padding: 8px 20px; border-radius: 50px; display: inline-block;">
-      🌹 I'd give you a thousand roses if I could 🌹
-    </span>
-    <br><br>
-    You're the best thing that ever happened to me. <br>
-    Happy Valentine's Day, my favorite person. 💌
+    Happy Valentine's Day, Ahmed! 💌
   </p>
   
-  <!-- Милая валентинка (замените на ваше фото) -->
   <img src="images/lelo.jpg" alt="Happy Valentine's Day" style="border: 5px solid #ffccd5; border-radius: 30px;">
   
   <p style="font-size: 1.3em; margin-top: 20px;">
@@ -619,7 +440,6 @@ button {
     <span style="font-size: 35px;">💚</span>
     <span style="font-size: 35px;">💙</span>
     <span style="font-size: 35px;">💜</span>
-    <span style="font-size: 35px;">🖤</span>
   </div>
   
   <button class="back-btn" onclick="goBack()">back</button>
@@ -628,23 +448,9 @@ button {
 <script>
 // Функция открытия карточки
 function openCard(cardId) {
-  // Анимация клика на конверте
-  if (event && event.currentTarget && event.currentTarget.classList.contains('envelope')) {
-    const envelope = event.currentTarget;
-    envelope.style.transform = 'scale(0.96)';
-    envelope.style.transition = 'transform 0.15s ease';
-    setTimeout(() => {
-      envelope.style.transform = 'scale(1)';
-    }, 150);
-  }
-  
   // Скрываем главную страницу
   document.getElementById('home').style.display = 'none';
-  document.getElementById('envelopesSection').style.display = 'none';
-  
-  // Прячем разделитель
-  const divider = document.querySelector('.divider');
-  if (divider) divider.style.display = 'none';
+  document.getElementById('welcomeSection').style.display = 'none';
   
   // Показываем карточку
   const card = document.getElementById(cardId);
@@ -658,11 +464,7 @@ function goBack() {
   
   // Показываем главную страницу
   document.getElementById('home').style.display = 'flex';
-  document.getElementById('envelopesSection').style.display = 'block';
-  
-  // Показываем разделитель
-  const divider = document.querySelector('.divider');
-  if (divider) divider.style.display = 'block';
+  document.getElementById('welcomeSection').style.display = 'block';
   
   // Убираем фокус с кнопок
   document.querySelectorAll('.btn').forEach(b => {
@@ -671,28 +473,10 @@ function goBack() {
   });
 }
 
-// Создаем падающие сердечки
-function createFloatingHearts() {
-  for (let i = 0; i < 25; i++) {
-    const heart = document.createElement('span');
-    heart.innerHTML = ['❤️', '💕', '💓', '💗'][Math.floor(Math.random() * 4)];
-    heart.className = 'floating-heart';
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.animationDuration = Math.random() * 15 + 15 + 's';
-    heart.style.fontSize = Math.random() * 14 + 12 + 'px';
-    heart.style.animationDelay = Math.random() * 8 + 's';
-    document.body.appendChild(heart);
-  }
-}
-
 // Запускаем при загрузке
 window.onload = function() {
-  createFloatingHearts();
-  
-  // Убеждаемся, что все элементы отображаются правильно
   document.getElementById('home').style.display = 'flex';
-  document.getElementById('envelopesSection').style.display = 'block';
-  document.querySelector('.divider').style.display = 'block';
+  document.getElementById('welcomeSection').style.display = 'block';
   document.querySelectorAll('.card').forEach(c => c.style.display = 'none');
 };
 </script>
