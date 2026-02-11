@@ -126,6 +126,13 @@ h1 {
   }
 }
 
+  /* Сбрасываем выделение и outline на всех кнопках */
+button {
+  -webkit-tap-highlight-color: transparent; /* для мобильных */
+  outline: none; /* убираем рамку фокуса */
+}
+
+
 /* --- Отмена выделения активной кнопки --- */
 .btn.active-btn {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -299,11 +306,19 @@ function openCard(cardId){
   document.getElementById('home').style.display='none';
   document.getElementById(cardId).style.display='flex';
 }
-function goBack(){
-  const cards=document.querySelectorAll('.card');
-  cards.forEach(c=>c.style.display='none');
-  document.getElementById('home').style.display='flex';
+function goBack() {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(c => c.style.display = 'none');
+  const home = document.getElementById('home');
+  home.style.display = 'flex';
+
+  // Убираем класс active со всех кнопок
+  document.querySelectorAll('.btn').forEach(b => {
+    b.classList.remove('active-btn');
+    b.blur(); // сброс фокуса с кнопки, чтобы не оставался hover на мобилке
+  });
 }
+
 </script>
 
 </body>
