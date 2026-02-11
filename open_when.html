@@ -5,17 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Open When</title>
 <style>
-body {
-  background: linear-gradient(120deg, #ffe6f0, #ffd9ec, #ffe0f5);
-  font-family: Arial, sans-serif;
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #ffe6f0, #ffd9ec, #ffe0f5);
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-  h1 { text-align:center; margin:20px; color:#ff69b4; }
-  .button-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; width:90%; max-width:600px; }
+h1 { text-align:center; margin:20px; color:#ff69b4; }
+
+.button-grid {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  width:90%;
+  max-width:600px;
+}
 .btn {
   background: linear-gradient(135deg, #ff9ac1, #ff6fa3);
   border: none;
@@ -33,6 +43,7 @@ body {
   transform: scale(1.08) rotate(-2deg);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+
 .card {
   display: none;
   flex-direction: column;
@@ -46,12 +57,11 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   animation: fadeIn 0.5s ease forwards;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
-  .card p {
+.card p {
   font-size: 1.1em;
   line-height: 1.5em;
   color: #ff4d94;
@@ -78,25 +88,6 @@ body {
   transform: scale(1.05) rotate(-2deg);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
-  html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(120deg, #ffe6f0, #ffd9ec, #ffe0f5);
-  background-attachment: fixed; /* фон не движется при скролле */
-}
-
-  .btn.active-btn {
-  box-shadow: 0 0 15px #ff69b4;
-  border: 2px solid #ff1493;
-  transform: scale(1.05);
-}
-
-
 </style>
 </head>
 <body>
@@ -268,31 +259,6 @@ function goBack(){
   cards.forEach(c=>c.style.display='none');
   document.getElementById('home').style.display='flex';
 }
-
-  let lastOpenedBtn = null;
-
-function openCard(cardId) {
-  document.getElementById('home').style.display = 'flex'; // убедимся, что grid виден
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(c => c.style.display = 'none');
-  
-  document.getElementById(cardId).style.display = 'flex';
-
-  // запоминаем кнопку, если нужно подсветить при возврате
-  lastOpenedBtn = document.querySelector(`.btn[onclick="openCard('${cardId}')"]`);
-}
-
-function goBack() {
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(c => c.style.display = 'none');
-  document.getElementById('home').style.display = 'flex';
-
-  // убираем актив со всех кнопок
-  document.querySelectorAll('.btn').forEach(b => b.classList.remove('active-btn'));
-  // подсвечиваем последнюю открытую
-  if (lastOpenedBtn) lastOpenedBtn.classList.add('active-btn');
-}
-
 </script>
 
 </body>
