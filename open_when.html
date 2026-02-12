@@ -427,8 +427,48 @@ button {
 <div id="gym" class="card">
   <h1>when you hit the gym</h1>
   <p>Time to grow muscles 💪✨ Keep sweating 🏋️‍♂️ and smiling 😁 I'm cheering for you 💖</p>
-  <img src="images/gym.jpg" alt="Open when you hit the gym">
-  <button class="back-btn" onclick="goBack()">back</button>
+  
+  <!-- SHORTS ВМЕСТО КАРТИНКИ -->
+  <div style="
+    width: 100%;
+    max-width: 360px;
+    margin: 20px auto;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(100, 80, 120, 0.15);
+    border: 4px solid white;
+    aspect-ratio: 9 / 16;
+  ">
+    <iframe 
+      src="https://www.youtube.com/embed/yDvxvlmuFbU" 
+      title="gym motivation shorts"
+      style="
+        width: 100%;
+        height: 100%;
+        display: block;
+        border: none;
+      "
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+  
+  <p style="
+    font-size: 0.9em;
+    color: #8d6b7a;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    font-style: italic;
+    text-align: center;
+    background: rgba(255, 215, 215, 0.3);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: inline-block;
+  ">
+    🏋️‍♂️ 1 minute of motivation = 1 rep of skipping leg day
+  </p>
+  
+  <button class="back-btn" onclick="goBack()" style="margin-top: 10px;">back</button>
 </div>
 
 <div id="dictatorMovie" class="card">
