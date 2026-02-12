@@ -286,8 +286,39 @@ button {
 <div id="cantSleep" class="card">
   <h1>when you can't sleep</h1>
   <p>Insomnia sucks, I know 😴 Take a deep breath, imagine something funny we did together, and let your mind relax. Sweet dreams are coming soon</p>
-  <img src="images/cant_sleep.jpg" alt="Open when you can't sleep">
-  <button class="back-btn" onclick="goBack()">back</button>
+  
+  <!-- КРИНЖОВЫЙ СЛОН ОТ CHATGPT -->
+  <div style="margin: 20px 0; position: relative;">
+    <img 
+      src="images/cant_sleep.jpg" 
+      alt="cringe elephant" 
+      style="
+        max-width: 100%;
+        border-radius: 30px;
+        border: 5px solid #ffe0e5;
+        box-shadow: 0 15px 30px rgba(180, 100, 120, 0.15);
+      "
+    >
+    
+    <!-- ИРОНИЧНАЯ ПОДПИСЬ -->
+    <p style="
+      font-size: 1em; 
+      color: #8d6b7a; 
+      margin-top: 15px; 
+      font-style: italic;
+      background: rgba(255, 230, 240, 0.7);
+      padding: 15px 20px;
+      border-radius: 50px;
+      border: 1px dashed #ff99aa;
+      text-align: center;
+    ">
+      🐘 I asked ChatGPT to draw an elephant... <br>
+      <span style="font-size: 0.9em; font-weight: 500;">and he tried his best, okay? 😭</span>
+  
+    </p>
+  </div>
+  
+  <button class="back-btn" onclick="goBack()" style="margin-top: 20px;">back</button>
 </div>
 
 <div id="lonely" class="card">
